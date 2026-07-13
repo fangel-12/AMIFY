@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dashboard.css">
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="topbar">
+        <div class="brand">Amify<span>.</span></div>
+        <div class="toggle">
+            <button class="active" id="tabFarmer" onclick="switchView('farmer')">Farmer</button>
+            <button id="tabBuyer" onclick="switchView('buyer')">Buyer</button>
+        </div>
+    </div>
+
+    <main>
+        <div id="farmerView">
+            <div class="section-head">
+                <h1>Your farm records</h1>
+                <p>Log every planting and harvest — your reliability score builds itself.</p>
+            </div>
+
+            <div class="profile-card">
+                <div class="profile-left">
+                    <div class="avatar" id="avatarInitial">A</div>
+                    <div>
+                        <div class="name">Adaeze Nwosu</div>
+                        <div class="loc">Ogbomoso, Oyo State</div>
+                        <div class="verified-badge">✓ Verified — phone & farm photo confirmed</div>
+                    </div>
+                </div>
+
+                <div class="score-badge">
+                    <div class="num" id="reliabilityScore">—</div>
+                    <div class="label">Reliability</div>
+                    <div class="deals-count" id="dealsCount">0 completed deals</div>
+                </div>
+            </div>
+        
+            <div class="card">
+                <h3>Weather</h3>
+                <div class="form-grid">
+                    <div>
+                        <label>Farm location (city/town)</label>
+                        <input type="text" id="weatherCity" placeholder="e.g. Ogbomoso" value="Ogbomoso">
+                    </div>
+
+                    <div style="display: flex; align-items: flex-end;">
+                        <button class="btn" style="margin-top: 0; width: 100%;" onclick="getWeather()">Check weather</button>
+                    </div>
+                </div>
+
+                <div id="weatherResult" style="margin-top: 14px;"></div>
+            </div>
+            
+            <div class="card">
+                <h3>AI plant scan</h3>
+                <p style="font-size: 13px; color: var(--ink-soft); margin-bottom: 12px;">Upload a photo of a leaf or crop to check for disease.</p>
+                <input type="file" id="plantImage" accept="image/*" onchange="previewPlantImage()">
+
+                <div id="plantPreviewWrap" style="margin-top:12px;display:none;">
+                    <img id="plantPreview" style="max-width: 180px; border-radius: 10px; border: 1px solid var(--line); display: block; margin-bottom: 12px;">
+                    <button class="btn harvest-btn" onclick="scanPlant()">Scan for disease</button>
+                </div>
+
+                <div id="plantResult" style="margin-top: 14px;"></div>
+            </div>
+
+            <div class="card">
+                <h3>Add a crop record</h3>
+                <div class="form-grid">
+                    <div>
+                        <label>Crop type</label>
+                        <select id="cropType">
+                            <option>Maize</option>
+                            <option>Cassava</option>
+                            <option>Yam</option>
+                            <option>Rice</option>
+                            <option>Tomato</option>
+                            <option>Pepper</option>
+                            <option>Beans</option>
+                        </select>
+                    </div>
+        
+                    <div>
+                        <label>Expected quantity (bags)</label>
+                        <input type="number" id="expectedQty" placeholder="e.g. 40">
+                    </div>
+        
+                    <div>
+                        <label>Planting date</label>
+                        <input type="date" id="plantDate">
+        
+                    </div>
+        
+                    <div>
+                        <label>Expected harvest date</label>
+                        <input type="date" id="harvestDate">        
+                    </div>
+      
+                </div>
+                <button class="btn" onclick="addRecord()">+ Add record</button>
+            </div>
+            
+            <div class="card">
+                <h3>Your crops</h3>
+                <div id="recordList"></div>
+            </div>
+        </div>
+
+        <div id="buyerView" style="display: none;">
+           <div class="section-head">
+                <h1>Find reliable farmers</h1>
+                <p>Filter by crop and location — reliability is based on real harvest history.</p>
+            </div>
+
+            <div class="filters">
+                <select id="filterCrop" onchange="renderBuyerView()">
+                    <option value="">All crops</option>
+                    <option>Maize</option>
+                    <option>Cassava</option>
+                    <option>Yam</option>
+                    <option>Rice</option>
+                    <option>Tomato</option>
+                </select> 
+                <input type="text" id="filterLoc" placeholder="Search location..." oninput="renderBuyerView()">
+            </div>
+            <div class="farmer-grid" id="farmerGrid"></div>
+        </div>
+    </main>
+
+    <div class="modal-overlay" id="chatOverlay">
+        <div class="chat-modal">
+            <div class="chat-head">
+                <div>
+                    <div class="cname" id="chatFarmerName"></div>
+                    <div class="cloc" id="chatFarmerLoc"></div>
+                </div>
+                <button class="chat-close" onclick="closeChat()">×</button>
+            </div>
+
+            <div class="chat-body" id="chatBody"></div>
+
+            <div class="chat-footer">
+                <input type="text" id="chatInput" placeholder="Type a message..." onkeydown="if(event.key==='Enter')sendMessage()">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+
+            <div class="deal-bar">
+                <button id="dealBtn" onclick="markDealComplete()">Mark deal completed</button>
+                <div class="note">Confirms the deal happened through Amify — boosts this farmer's reliability score.</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+ </body>
+</html>

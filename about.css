@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap');
+
+:root{
+  --loam: #2E2318;
+  --soil: #5A4632;
+  --growth: #3F6B4A;
+  --growth-light: #DCE8DE;
+  --harvest: #C98A3B;
+  --harvest-light: #F5E6CE;
+  --paper: #F6F1E7;
+  --paper-2: #EFE7D6;
+  --ink: #26201A;
+  --ink-soft: #6B6152;
+  --line: #DCD1BA;
+  --white: #FFFDF8;
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+    font-family:'Public Sans',sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+}
+
+.site-header{
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 32px;
+    background: var(--loam);
+    color: var(--paper-2);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+.site-nav a{
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background 0.15s;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--paper-2);
+    text-decoration: none;
+}
+
+.site-nav a:hover{
+    background: rgba(255,255,255,0.08);
+    color: var(--white);
+}
+
+.site-header .brand{
+    font-family: 'Fraunces',serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--line);
+    text-decoration: none;
+}
+
+.brand span{
+  color: var(--harvest);
+}
+
+.site-nav{
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.header-actions{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-outline{
+    border: 1px solid var(--paper-2);
+    color: var(--paper);
+    background :transparent;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor :pointer;
+}
+
+.btn-outline:hover{
+    border-color: var(--white);
+    background: rgba(255,255,255,0.06);
+}
+
+.btn-solid{
+    background: var(--harvest);
+    color: var(--loam);
+    border: none;
+    padding: 9px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight:700;
+    cursor: pointer;
+}
+
+.btn-solid:hover{
+    background: #DDA35C;
+}
+
+.about-hero{
+    padding: 120px 8%;
+    text-align: center;
+    background: #f7faf8;
+}
+
+.about-container{
+    max-width: 850px;
+    margin: auto;
+}
+
+.tag{
+    display: inline-block;
+    padding: 8px 18px;
+    background: #e8f5ee;
+    color: #1f7a4d;
+    border-radius: 50px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.about-hero h1{
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #111;
+}
+
+.about-hero p{
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #666;
+}
+
+.mission-section,
+.story-section,
+.values{
+    padding: 90px 8%;
+}
+
+.about-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 30px;
+}
+
+.card{
+    background: #fff;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.06);
+}
+
+.card h2,
+.card h3{
+    margin-bottom: 15px;
+    color: #111;
+}
+
+.card p{
+    color: #666;
+    line-height: 1.8;
+}
+
+.story-section h2{
+    margin-bottom: 25px;
+    font-size: 2.2rem;
+}
+
+.story-section p{
+    margin-bottom: 18px;
+    line-height: 1.9;
+    color: #666;
+}
+
+.about-cta{
+    background: var(--soil);
+    color: white;
+    padding: 90px 8%;
+    text-align: center;
+}
+
+.about-cta h2{
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.about-cta p{
+    margin-bottom: 30px;
+    color: #e5e5e5;
+}
+
+.about-cta a button{
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #0b7a3b;
+}
+
+.about-cta a button:hover{
+    background-color: #096330;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+    padding: 12px 24px;
+}
+
+.site-footer{
+    background: var(--loam);
+    color: var(--paper-2);
+    padding: 36px 32px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 13px;
+}
+
+.site-footer .fbrand{
+    font-family: 'Fraunces',serif;
+    font-weight: 700;
+    color: var(--paper);
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.footer-cols{
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.footer-col h4{
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--harvest);
+    margin-bottom: 10px;
+}
+
+.footer-col a{
+    display: block;
+    margin-bottom: 6px;
+    color: var(--paper-2);
+    text-decoration: none;
+}
+
+.footer-col a:hover{
+    color: var(--harvest);
+    transform: translateX(5px);
+    transition: .3s ease-in-out;
+}

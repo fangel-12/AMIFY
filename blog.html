@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="blog.css">
+    <title>Blog</title>
+</head>
+<body>
+    <header class="site-header">
+        <a href="index.html" class="brand">Amify<span>.</span></a>
+
+        <nav class="site-nav">
+            <a href="index.html">Home</a>
+            <a href="Services.html">Services</a>
+            <a href="Blog.html">Blog</a>
+            <a href="About.html">About</a>
+        </nav>
+
+        <div class="header-actions">
+            <a href="login.html"><button class="btn-outline">Log in</button></a>
+            <a href="signup.html"><button class="btn-solid">Sign up</button></a>
+        </div>
+    </header>
+
+    <section class="globe-section">
+      <canvas id="globeCanvas"></canvas>
+      <div>
+        <div class="section-label">Reach</div>
+        <h2>Farmers across Nigeria, one map.</h2>
+        <p class="lead">Every pin is a real farm logging real records — growing every week as more farmers join. Buyers can find someone near them, or source from anywhere in the country.</p>
+      </div>
+    </section>
+
+    <section class="section blog-section" id="blog" style="margin-bottom: 100px;">
+        <div class="section-label">From the blog</div>
+        <h2>Notes on farming, trust, and building in the open</h2>
+        <p class="lead">What we're learning as we build Amify — for farmers, buyers, and anyone curious about agtech in Nigeria.</p>
+
+        <div class="blog-grid">
+            <div class="blog-card">
+                <div class="blog-thumb"></div>
+                <div class="blog-body">
+                    <div class="blog-tag">Trust</div>
+                    <h4>Why buyers don't trust farmers they've never met</h4>
+                    <p>The real reason small farmers get overlooked — and what actually fixes it.</p>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="blog-thumb" style="background:linear-gradient(135deg,var(--harvest),var(--soil));"></div>
+                <div class="blog-body">
+                    <div class="blog-tag">Product</div>
+                    <h4>How the reliability score actually works</h4>
+                    <p>No black box — here's the exact math behind every farmer's badge.</p>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="blog-thumb" style="background:linear-gradient(135deg,var(--loam),var(--growth));"></div>
+                <div class="blog-body">
+                    <div class="blog-tag">Building</div>
+                    <h4>Building Amify in public — week one</h4>
+                    <p>What shipped, what broke, and what's next on the roadmap.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div>
+            <div class="fbrand">Amify.</div>
+            <div>Farm records buyers can trust.</div>
+        </div>
+
+        <div class="footer-cols">
+            <div class="footer-col">
+                <h4>Product</h4>
+                <a href="services.html">Services</a>
+                <a href="signup.html">Sign up</a>
+                <a href="login.html">Log in</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="about.html">About</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
