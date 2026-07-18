@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="signup.css">
+    <title>Sign up - Amify</title>
+</head>
+<body>
+    <header class="site-header">
+        <a href="index.html" class="brand">Amify<span>.</span></a>
+
+        <nav class="site-nav">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="blog.html">Blog</a>
+            <a href="about.html">About</a>
+        </nav>
+
+        <div class="header-actions">
+            <a href="login.html"><button class="btn-outline">Log in</button></a>
+        </div>
+    </header>
+
+    <div class="form-wrap">
+        <div class="form-card">
+            <h1>Create your account</h1>
+            <div class="subtitle">Free for farmers, forever</div>
+
+            <div class="role-toggle">
+                <button class="active" id="roleFarmer" onclick="setRole('farmer')">I'm a farmer</button>
+                <button id="roleBuyer" onclick="setRole('buyer')">I'm a buyer</button>
+            </div>
+
+            <form id="signUp" onsubmit="return handleSignup(event)">
+                <div class="field">
+                    <label for="name">Full name</label>
+                    <input type = "text" id = "fullName" placeholder = "e.g. Fresh Young Nigga" required>
+                </div>
+
+                <div class="field">
+                    <label for="number">Phone number</label>
+                    <input type = "tel" id = "phone" placeholder = "e.g. 0804 000 0012" required>
+                </div>
+
+                <div class="field">
+                    <label for="location">Location (state)</label>
+                    <input type = "text" id = "location" placeholder = "e.g. Ogun State" required>
+                </div>
+
+                <div class="field" id="cropField">
+                    <label for="crops">Main crop</label>
+                    <select name="crop" id="crop">
+                        <option value="Maize">Maize</option>
+                        <option value="Cassava">Cassava</option>
+                        <option value="Yam">Yam</option>
+                        <option value="Rice">Rice</option>
+                        <option value="Tomato">Tomato</option>
+                        <option value="Pepper">Pepper</option>
+                        <option value="Beans">Beans</option>
+                        <option value="All crops">All Crops</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Create a password" required>
+                </div>
+                <button type="submit" class="btn form-submit">Create account</button>
+            </form>
+
+            <div class="form-switch">Already have an account? <a href="login.html">Log in</a></div>
+        </div>
+    </div>
+
+    <script src="signup.js"></script>
+</body>
+</html>

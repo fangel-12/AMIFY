@@ -211,9 +211,8 @@ function markDealComplete(){
 
 renderRecords();
 
-// ---------- Weather ----------
-// Get a free key at https://openweathermap.org/api (no card needed)
-const OPENWEATHER_API_KEY = 'YOUR_OPENWEATHER_API_KEY';
+// Weather
+const OPENWEATHER_API_KEY = 'YOUR_WEATHER_API_KEY';
 
 async function getWeather(){
   const city = document.getElementById('weatherCity').value.trim();
@@ -245,8 +244,7 @@ async function getWeather(){
   }
 }
 
-// ---------- AI Plant Scan ----------
-// Get a free Hugging Face token at https://huggingface.co/settings/tokens (free tier, no card needed)
+// AI Plant Scan
 const HF_TOKEN = 'YOUR_HUGGINGFACE_TOKEN';
 const HF_MODEL = 'linkanjarad/mobilenet_v2_1.0_224-plant-disease-identification';
 

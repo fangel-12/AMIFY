@@ -20,7 +20,7 @@
   globeGroup.rotation.x = 0.25; // slight tilt so it doesn't look flat
   scene.add(globeGroup);
 
-  // solid base sphere so wireframe has something to sit on top of
+  // solid base sphere
   const solidGeo = new THREE.SphereGeometry(1.48, 32, 24);
   const solidMat = new THREE.MeshPhongMaterial({color:0xDCE8DE, transparent:true, opacity:0.35});
   globeGroup.add(new THREE.Mesh(solidGeo, solidMat));
@@ -29,7 +29,7 @@
   const wireMat = new THREE.MeshBasicMaterial({color:0x5A4632, wireframe:true, transparent:true, opacity:0.4});
   globeGroup.add(new THREE.Mesh(wireGeo, wireMat));
 
-  // farm location pins — bigger, glowing gold, with a thin stalk so they read as "pins" not dots
+  // farm location pins
   const states = ['Oyo','Enugu','Kaduna','Imo','Kano','Benue','Kwara','Ogun','Plateau','Delta','Ondo','Niger'];
   const pinPositions = [
     [0.4,0.9],[1.1,0.3],[0.8,-0.5],[-0.6,0.7],[-1.0,-0.2],
@@ -63,3 +63,72 @@
   }
   animate();
 })();
+
+const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+
+    });
+},{
+    threshold:0.15
+});
+
+const links = document.querySelectorAll(".site-nav a");
+
+links.forEach(link=>{
+
+    if(link.href===window.location.href){
+        link.classList.add("active");
+    }
+
+});
+
+const header=document.querySelector(".site-header");
+
+window.addEventListener("scroll",()=>{
+
+    if(window.scrollY>50){
+
+        header.style.boxShadow="0 12px 30px rgba(172, 17, 17, 0.33)";
+
+    }
+
+    else{
+
+        header.style.boxShadow="none";
+
+    }
+
+});
+
+const journey = document.querySelector(".journey");
+
+if(journey){
+
+journey.addEventListener("mousemove",(e)=>{
+
+const rect = journey.getBoundingClientRect();
+
+const x=e.clientX-rect.left;
+const y=e.clientY-rect.top;
+
+const rotateY=((x-rect.width/2)/18);
+
+const rotateX=((rect.height/2-y)/18);
+
+journey.style.transform =
+`rotateX(${rotateX}deg)
+ rotateY(${rotateY}deg)`;
+
+});
+
+journey.addEventListener("mouseleave",()=>{
+
+journey.style.transform="rotateX(-12px) rotateY(-12px)";
+
+});
+
+}

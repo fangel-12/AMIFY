@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In - Amify</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <header class="site-header">
+        <a href="index.html" class="brand">Amify<span>.</span></a>
+
+        <nav class="site-nav">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="blog.html">Blog</a>
+            <a href="about.html">About</a>
+        </nav>
+
+        <div class="header-actions">
+            <a href="signup.html"><button class="btn-solid">Sign up</button></a>
+        </div>
+    </header>
+
+    <div class="form-wrap">
+        <div class="form-card">
+            <h1>Welcome back</h1>
+            <div class="subtitle">Log in to your Amify account.</div>
+            <form id="loginForm" onsubmit="return handleLogin(event)">
+                <div class="field">
+                    <label for="email">Phone Number</label>
+                    <input type="tel" id="email" placeholder="e.g, 0804-567-8000" required>
+                </div>
+                <div class="field">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn form-submit">Log in</button>
+            </form>
+
+            <div class="form-switch">Don't have an account? <a href="signup.html">Sign up</a></div>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
